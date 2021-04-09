@@ -1,6 +1,6 @@
 class SortedList {
   constructor() {
-    this.items = [1,2,3],
+    this.items = [],
     this.length = this.items.length
   }
 
@@ -32,14 +32,20 @@ class SortedList {
   }
 
   sum() {
+    if (this.length === 0) {
+      return 0;
+    }
     let sum = this.items.reduce((sum, value) => sum + value);
     return sum;
   }
 
-  avg() {}
+  avg() {
+    if (this.length === 0) {
+      throw new Error('EmptySortedList');
+    }
+    let avg = this.sum() / this.length;
+    return avg
+  }
 }
-
-let list = new SortedList();
-list.sum()
 
 module.exports = SortedList;
